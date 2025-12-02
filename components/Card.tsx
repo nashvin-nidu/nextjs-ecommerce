@@ -32,9 +32,9 @@ export default function Card({
     };
 
     return (
-        <div className="group flex flex-col gap-2">
+        <div className="group flex flex-col gap-2 bg-light-100 ring-2 ring-light-200 hover:ring-light-300 rounded-t-xl">
             {/* Image Container */}
-            <div className="relative aspect-square w-full overflow-hidden bg-light-200">
+            <div className="relative aspect-square w-full overflow-hidden bg-light-200  rounded-t-xl">
                 {badge && (
                     <div className={`absolute left-4 top-4 z-10 rounded-full bg-light-100 px-3 py-1 text-xs font-medium ${toneColors[badge.tone]} shadow-sm`}>
                         {badge.label}
@@ -44,13 +44,13 @@ export default function Card({
                     src={imageSrc}
                     alt={title}
                     fill
-                    className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
             </div>
 
             {/* Content */}
-            <div className="flex flex-col">
+            <div className="flex flex-col p-5">
                 <div className="flex items-start justify-between">
                     <h3 className="text-body-medium font-medium text-dark-900">{title}</h3>
                     <p className="text-body-medium font-medium text-dark-900">{formattedPrice}</p>
