@@ -2,25 +2,42 @@
 
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 interface AuthFormProps {
     type: "sign-in" | "sign-up";
+    onsubmit: (formData: FormData) => Promise<{ success?: boolean; error?: any; userid?: string } | void>;
 }
 
-export default function AuthForm({ type }: AuthFormProps) {
+export default function AuthForm({ type, onsubmit }: AuthFormProps) {
     const [showPassword, setShowPassword] = useState(false);
+    const router = useRouter();
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        try {
+            const result = await onsubmit(formData);
+            if (result?.success) {
+                router.push("/");
+            }
+        } catch (e) {
+            console.error('Error', e)
+        }
+    }
 
     return (
-        <form className="flex flex-col gap-4 w-full">
+        <form className="flex flex-col gap-4 w-full" onSubmit={handleSubmit}>
             {type === "sign-up" && (
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="fullName" className="text-body-medium font-medium">
-                        Full Name
+                    <label htmlFor="name" className="text-body-medium font-medium">
+                        Name
                     </label>
                     <input
                         type="text"
-                        id="fullName"
-                        placeholder="Enter your full name"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
                         className="w-full border border-light-300 rounded-lg px-4 py-3 text-body focus:outline-none focus:border-black transition-colors"
                     />
                 </div>
@@ -33,6 +50,7 @@ export default function AuthForm({ type }: AuthFormProps) {
                 <input
                     type="email"
                     id="email"
+                    name="email"
                     placeholder="johndoe@gmail.com"
                     className="w-full border border-light-300 rounded-lg px-4 py-3 text-body focus:outline-none focus:border-black transition-colors"
                 />
@@ -46,6 +64,7 @@ export default function AuthForm({ type }: AuthFormProps) {
                     <input
                         type={showPassword ? "text" : "password"}
                         id="password"
+                        name="password"
                         placeholder={type === "sign-up" ? "minimum 8 characters" : "Enter your password"}
                         className="w-full border border-light-300 rounded-lg px-4 py-3 text-body focus:outline-none focus:border-black transition-colors pr-12"
                     />

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
+import GuestSessionInitializer from "@/components/GuestSessionInitializer";
 
 const jost = Jost({
   variable: "--font-geist-sans",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${jost.className} antialiased`}
       >
+        <GuestSessionInitializer />
         {children}
       </body>
     </html>
