@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AuthForm from "@/components/AuthForm";
 import SocialProviders from "@/components/SocialProviders";
+import { signUp } from "@/lib/auth/actions";
 
 export default function SignUpPage() {
     return (
@@ -28,7 +29,7 @@ export default function SignUpPage() {
                 </div>
             </div>
 
-            <AuthForm type="sign-up" />
+            <AuthForm type="sign-up" onsubmit={signUp}   />
 
             <p className="mt-6 text-footnote text-dark-500 text-center max-w-xs">
                 By signing up, you agree to our{" "}
