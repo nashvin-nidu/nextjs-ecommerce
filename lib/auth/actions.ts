@@ -78,7 +78,7 @@ export async function signIn(formData: FormData) {
 export async function getCurrentUser() {
     try {
         const session = await auth.api.getSession({
-        headers: await headers(),
+            headers: await headers(),
         });
         return session?.user ?? null;
     }
@@ -95,6 +95,11 @@ export async function signOut() {
 }
 
 export async function createGuestSession() {
+    const user = await getCurrentUser();
+    if (user && !("error" in user)) {
+        return null;
+    }
+
     const cookieStore = await cookies();
     const existingGuestToken = cookieStore.get("guest_session")?.value;
 
