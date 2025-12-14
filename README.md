@@ -156,7 +156,7 @@ Authentication is powered by **Better Auth** with the following features:
 - ✅ HTTP-only cookies for security
 - ✅ UUID-based user IDs
 - ✅ Guest session support
-- ⚙️ Social providers ready (currently disabled)
+- ⚙️ Social providers ready working (currently disabled)
 
 ## 🎨 UI Components
 
