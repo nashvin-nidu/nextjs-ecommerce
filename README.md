@@ -1,4 +1,4 @@
-# Next.js E-Commerce Platform 👟
+ko# Next.js E-Commerce Platform 👟
 
 A modern, full-stack e-commerce platform built with Next.js 16, focusing on footwear and shoe products. Features a sleek UI, secure authentication, and robust database integration for a seamless online shopping experience.
 
@@ -199,7 +199,3 @@ This is a personal project. Feel free to fork and modify for your own use.
 ## 📧 Contact
 
 For questions or issues, please open an issue on GitHub.
-
----
-
-Built with ❤️ using Next.js and modern web technologies.
