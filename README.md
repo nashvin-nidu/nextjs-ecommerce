@@ -196,6 +196,3 @@ This project is private and proprietary.
 
 This is a personal project. Feel free to fork and modify for your own use.
 
-## 📧 Contact
-
-For questions or issues, please open an issue on GitHub.
