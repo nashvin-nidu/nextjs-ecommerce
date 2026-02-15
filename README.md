@@ -192,7 +192,3 @@ Ensure you set these in your hosting platform:
 
 This project is private and proprietary.
 
-## 🤝 Contributing
-
-This is a personal project. Feel free to fork and modify for your own use.
-
