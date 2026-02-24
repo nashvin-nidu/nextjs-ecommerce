@@ -188,7 +188,3 @@ Ensure you set these in your hosting platform:
 - `BETTER_AUTH_SECRET` - Random secret for auth encryption
 - `BETTER_AUTH_URL` - Your production URL
 
-## 📝 License
-
-This project is private and proprietary.
-
